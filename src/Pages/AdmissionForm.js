@@ -1,11 +1,11 @@
 import React from 'react';
 
-const WelcomeBoard = () => {
+const AdmissionForm = () => {
      return (
           <div>
-               <h1>Hello</h1>
+               
           </div>
      );
 };
 
-export default WelcomeBoard;
+export default AdmissionForm;

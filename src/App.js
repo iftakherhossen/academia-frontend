@@ -5,6 +5,7 @@ import Loader from './Components/Common/Loader';
 import ScrollToTop from './Components/Common/ScrollToTop';
 import WelcomeBoard from './Components/DashboardComponents/WelcomeBoard';
 import AboutUs from './Pages/AboutUs';
+import AdmissionForm from './Pages/AdmissionForm';
 import Class from './Pages/Class';
 import Dashboard from './Pages/Dashboard';
 import Home from './Pages/Home';
@@ -39,6 +40,7 @@ function App() {
                         <Route path="/dashboard" exact element={<Dashboard />}>
                             <Route index element={<WelcomeBoard />} />
                         </Route>
+                        <Route path="/admission-form" element={<AdmissionForm />} />
                         <Route path="*" element={<NotFound />} /> 
                     </Routes>                    
                     </ScrollToTop>
