@@ -1,0 +1,2 @@
+E:\Projects\ASP.NET\demo\frontend\obj\Debug\frontend.esproj.SuggestedBindingRedirects.cache
+E:\Projects\ASP.NET\demo\frontend\obj\Debug\frontend.esproj.CoreCompileInputs.cache

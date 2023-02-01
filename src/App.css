@@ -1,38 +1,90 @@
-.App {
-  text-align: center;
+.bg-pastel-green {
+  background-color: #1EB2A6 !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.text-pastel-green {
+  color: #1EB2A6 !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.parallax {
+  background-image: url("https://preview.colorlib.com/theme/academia/images/bg_1.jpg.webp") !important;
+  min-height: 100vh !important;
+  background-attachment: fixed !important;
+  background-position: top center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.model-img {
+  width: 100% !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
 }
 
-.App-link {
-  color: #61dafb;
+.fCard:hover {
+  background-color: #1EB2A6 !important;
+  color: white !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.fCard:hover .fIcon {
+  color: white !important;
+}
+
+.stats-bg {
+  background-image: url("https://preview.colorlib.com/theme/academia/images/bg_3.jpg.webp") !important;
+  height: 100% !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-color: #908579;
+}
+
+.project-card {
+  overflow: hidden !important;
+}
+
+.project-text-card,
+.project-tall-card {
+  width: 90% !important;
+  margin: auto 20px !important;
+  bottom: 100% !important;
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  color: white !important;
+  transition: 0.6s ease-in-out !important;
+}
+
+.project-card:hover .project-text-card {
+  bottom: 12% !important;
+}
+
+.project-card:hover .project-tall-card {
+  bottom: 6% !important;
+}
+
+th, td {
+  border: 1px solid #dddd;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F8F8F8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1EB2A6;
+  border-radius: 5px;
 }
