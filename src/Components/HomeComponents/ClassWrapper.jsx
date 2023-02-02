@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Heading from '../Common/Heading';
 
 const classes = [
      { id: 1, name: "Play", icon: "ri-store-line", color: "#ffbb2c", link: "play" },
@@ -16,16 +17,17 @@ const classes = [
      { id: 12, name: "Class-Ten", icon: "ri-fingerprint-line", color: "#29cc61", link: "class-10" },
 ];
 
-const ClassWrapper = ({ academic }) => {
+const ClassWrapper = ({ academic, onlyClass }) => {
      return (
-          <section id="academic" className={`container mx-auto px-4 md:px-10 py-10 ${academic === true ? 'mt-0 mb-16' : 'mt-20'}`}>
-               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-10">
+          <section id="academic" className={`container mx-auto px-4 md:px-10 ${academic === true ? 'mt-5 mb-16 y-10' : onlyClass === true ? 'mt-0' : 'mt-20'}`}>
+               {onlyClass === false && <Heading text={"Academic Info"} />}
+               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-4">
                     {
                          classes.map(({ id, name, icon, link, color }) => <Link to={`/academic/${link}`} key={id}>
                               <div className="card rounded-lg bg-white shadow-sm hover:shadow-lg hover:border border border-transparent hover:border-[#1EB2A6]">
                                    <div className="px-6 py-4 flex justify-start items-center">
                                         <div>
-                                             <i className={`${icon} text-3xl mr-3`} style={{ color: color}}></i>
+                                             <i className={`${icon} text-3xl mr-3`} style={{ color: color }}></i>
                                         </div>
                                         <div>
                                              <h3 className="text-xl font-semibold text-black mb-1.5">{name}</h3>

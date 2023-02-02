@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Footer from '../Components/Common/Footer';
 import Heading from '../Components/Common/Heading';
-import Navigation from '../Components/HomeComponents/Navigation';
+import Navigation from '../Components/Common/Navigation';
 import JournalsCard from '../Components/JournalsComponents/JournalsCard';
 import SearchBarWrapper from '../Components/JournalsComponents/SearchBarWrapper';
 

@@ -87,7 +87,7 @@ const Navigation = () => {
                     <input type="checkbox" id="contact" className="modal-toggle" />
                     <div className="modal modal-bottom sm:modal-middle">
                          <div className="modal-box relative bg-white text-black">
-                              <label htmlFor="contact" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                              <label htmlFor="contact" className="btn btn-sm btn-circle absolute right-2 top-2 bg-white  text-black border-black hover:text-white">✕</label>
                               <h3 className="text-[1.7rem] font-bold pl-1">Contact</h3>
                               <div className="pt-4">
                                    <form className="flex flex-col justify-center items-center text-black">
@@ -107,7 +107,7 @@ const Navigation = () => {
                     <input type="checkbox" id="admin-login" className="modal-toggle" />
                     <div className="modal modal-bottom sm:modal-middle">
                          <div className="modal-box relative bg-white text-black">
-                              <label htmlFor="admin-login" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                              <label htmlFor="admin-login" className="btn btn-sm btn-circle absolute right-2 top-2 bg-white  text-black border-black hover:text-white">✕</label>
                               <h3 className="text-2xl font-bold pl-1">Welcome, Admin</h3>
                               <form className="pt-4 pb-0">
                                    <input type="text" placeholder="Enter Email here" className="input input-bordered focus:outline-0 w-full bg-white text-lg font-medium my-2" required />
@@ -127,7 +127,7 @@ const Navigation = () => {
                     <input type="checkbox" id="teacher-login" className="modal-toggle" />
                     <div className="modal modal-bottom sm:modal-middle">
                          <div className="modal-box relative bg-white text-black">
-                              <label htmlFor="teacher-login" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                              <label htmlFor="teacher-login" className="btn btn-sm btn-circle absolute right-2 top-2 bg-white  text-black border-black hover:text-white">✕</label>
                               <h3 className="text-2xl font-bold pl-1">Welcome, Teacher</h3>
                               <form className="pt-4 pb-0">
                                    <input type="text" placeholder="Enter Email here" className="input input-bordered focus:outline-0 w-full bg-white text-lg font-medium my-2" required />
@@ -148,7 +148,7 @@ const Navigation = () => {
                     <input type="checkbox" id="student-login" className="modal-toggle" />
                     <div className="modal modal-bottom sm:modal-middle">
                          <div className="modal-box relative bg-white text-black">
-                              <label htmlFor="student-login" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                              <label htmlFor="student-login" className="btn btn-sm btn-circle absolute right-2 top-2 bg-white  text-black border-black hover:text-white">✕</label>
                               <h3 className="text-2xl font-bold pl-1">Welcome, Student</h3>
                               <form className="pt-4 pb-0">
                                    <input type="text" placeholder="Enter Email here" className="input input-bordered focus:outline-0 w-full bg-white text-lg font-medium my-2" required />

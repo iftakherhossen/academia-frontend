@@ -3,9 +3,14 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import './App.css';
 import Loader from './Components/Common/Loader';
 import ScrollToTop from './Components/Common/ScrollToTop';
+import ManageAcademicInfo from './Components/DashboardComponents/ManageAcademicInfo';
+import ManageAdmissionForms from './Components/DashboardComponents/ManageAdmissionForms';
+import ManageEvents from './Components/DashboardComponents/ManageEvents';
+import ManageNotices from './Components/DashboardComponents/ManageNotices';
+import ManageStuffs from './Components/DashboardComponents/ManageStuffs';
+import ManageTestimonial from './Components/DashboardComponents/ManageTestimonial';
 import WelcomeBoard from './Components/DashboardComponents/WelcomeBoard';
 import AboutUs from './Pages/AboutUs';
-import AdmissionForm from './Pages/AdmissionForm';
 import Class from './Pages/Class';
 import Dashboard from './Pages/Dashboard';
 import Home from './Pages/Home';
@@ -39,8 +44,13 @@ function App() {
                         <Route path="/journals" element={<Journals />} />
                         <Route path="/dashboard" exact element={<Dashboard />}>
                             <Route index element={<WelcomeBoard />} />
+                            <Route path="manage-academic-info" element={<ManageAcademicInfo />} />
+                            <Route path="manage-notices" element={<ManageNotices />} />
+                            <Route path="manage-testimonials" element={<ManageTestimonial />} />
+                            <Route path="manage-events" element={<ManageEvents />} />
+                            <Route path="manage-stuffs" element={<ManageStuffs />} />
+                            <Route path="manage-admission-forms" element={<ManageAdmissionForms />} />
                         </Route>
-                        <Route path="/admission-form" element={<AdmissionForm />} />
                         <Route path="*" element={<NotFound />} /> 
                     </Routes>                    
                     </ScrollToTop>

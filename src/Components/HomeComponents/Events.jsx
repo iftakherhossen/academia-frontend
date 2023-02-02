@@ -22,11 +22,11 @@ const Event = ({ event }) => {
      )
 }
 
-const Events = () => {
+const Events = ({ dashboard }) => {
      return (
           <section className="container mx-auto py-10" id="events">
                <div className="flex flex-col justify-center items-center py-12">
-                    <h2 className="text-4xl font-bold text-black">Events</h2>
+                    <h2 className={`text-4xl font-bold text-black ${dashboard === true && 'mt-10'}`}>{dashboard === true ? 'Manage Events' : 'Events'}</h2>
                </div>
                <div className="px-5 md:px-10 pb-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
                     {

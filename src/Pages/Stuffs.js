@@ -2,7 +2,7 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import Footer from '../Components/Common/Footer';
 import Heading from '../Components/Common/Heading';
-import Navigation from '../Components/HomeComponents/Navigation';
+import Navigation from '../Components/Common/Navigation';
 import CardWrapper from '../Components/StuffsComponents/CardWrapper';
 
 const governingBodyData = [

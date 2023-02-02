@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Heading = ({ text }) => {
+const Heading = ({ text, dashboard }) => {
      return (
-          <div className="h-40 flex justify-center items-end pb-14">
-               <h1 className="text-4xl font-bold text-black">{text}</h1>
+          <div className={`${dashboard === true ? 'h-48' : 'h-40'} flex justify-center items-end pb-14`}>
+               <h1 className={`text-4xl font-bold text-black ${dashboard === true && 'text-center'}`}>{text}</h1>
           </div>
      );
 };

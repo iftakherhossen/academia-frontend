@@ -1,6 +1,6 @@
 import React from 'react';
+import Navigation from '../Common/Navigation';
 import Header from './Header';
-import Navigation from './Navigation';
 import TopBar from './TopBar';
 
 const HeroSection = () => {

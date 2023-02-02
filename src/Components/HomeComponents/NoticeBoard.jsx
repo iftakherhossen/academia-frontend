@@ -26,13 +26,13 @@ const Notice = ({ notice }) => {
      )
 }
 
-const NoticeBoard = () => {
+const NoticeBoard = ({ dashboard }) => {
      return (
           <section className="container mx-auto py-10" id="notices">
                <div className="flex flex-col justify-center items-center py-10">
-                    <h2 className="text-4xl font-bold mt-10 text-black">Notice Board</h2>
+                    <h2 className="text-4xl font-bold mt-10 text-black">{dashboard === true ? 'Manage Notices' : 'Notice Board'}</h2>
                </div>
-               <div className="px-5 md:px-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3">
+               <div className={`px-5 md:px-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 ${dashboard === true && 'mt-5'}`}>
                     {
                          notices.slice(0).reverse().map(notice => <Notice notice={notice} key={notice.id} />)
                     }

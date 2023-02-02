@@ -1,39 +1,42 @@
 import React from 'react';
 import { AiFillHome } from 'react-icons/ai';
-import { FiMenu } from 'react-icons/fi';
+import { GiHamburgerMenu } from 'react-icons/gi';
 import { Link, Outlet } from 'react-router-dom';
 
 const dashboardItems = [
-     {title: "Manage Notices"},
-     {title: "Manage Testimonials"},
-     {title: "Manage Events"},
-     {title: "Manage Academic Info"},
-     {title: "Manage Stuffs"},
-     {title: "Manage Admission Forms"}
+     { title: "Dashboard Home" },
+     { title: "Manage Academic Info" },
+     { title: "Manage Notices" },
+     { title: "Manage Testimonials" },
+     { title: "Manage Events" },     
+     { title: "Manage Stuffs" },
+     { title: "Manage Admission Forms" }
 ];
 
 const Dashboard = () => {
      return (
           <div className="drawer drawer-mobile">
-               <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+               <input id="side-bar" type="checkbox" className="drawer-toggle" />
                <div className="drawer-content">
-                    <div className="bg-base-100 py-2 lg:py-0 flex justify-between items-center px-5 lg:px-0">
-                         <h2 className="text-2xl font-bold lg:hidden">Dashboard</h2>
-                         <label htmlFor="my-drawer-2" className="btn drawer-button lg:hidden text-2xl"><FiMenu /></label>
+                    <div className="bg-pastel-green py-2 lg:py-0 flex justify-between items-center px-5 lg:px-0">
+                         <h2 className="text-2xl font-bold lg:hidden text-white">Dashboard</h2>
+                         <label htmlFor="side-bar" className="btn drawer-button lg:hidden text-2xl bg-white focus:bg-white active:bg-white focus-visible:bg-white text-pastel-green border-0">
+                              <GiHamburgerMenu />
+                         </label>
                     </div>
-                    <div>
+                    <main className="w-full">
                          <Outlet />
-                    </div>
+                    </main>
                </div> 
                <div className="drawer-side">
-                    <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
-                    <ul className="menu p-4 w-80 bg-base-100 text-base-content">
-                         <li className="text-lg font-semibold mb-5">
+                    <label htmlFor="side-bar" className="drawer-overlay"></label> 
+                    <ul className="menu p-3 w-[21rem] bg-pastel-green text-white" id="side-bar">
+                         <li className="text-xl font-semibold mb-5" onClick={() => {document.getElementById('side-bar').click()}}>
                               <Link to="/"><AiFillHome /> Back to Home</Link>
                          </li>
                          {
-                              dashboardItems.map(({ title }) => <li className="text-lg font-semibold">
-                                   <Link to={`/dashboard/${title.replace(/\s+/g, '-').toLowerCase()}`}>{title}</Link>
+                              dashboardItems.map(({ title }) => <li className="text-xl font-semibold" onClick={() => {document.getElementById('side-bar').click()}}>
+                                   <Link to={title === "Dashboard Home" ? "/dashboard" : `/dashboard/${title.replace(/\s+/g, '-').toLowerCase()}`}>{title}</Link>
                               </li>)
                          }
                     </ul>               

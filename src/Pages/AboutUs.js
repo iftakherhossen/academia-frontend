@@ -3,7 +3,7 @@ import { BsBuilding, BsFacebook, BsInstagram, BsTwitter } from 'react-icons/bs';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Footer from '../Components/Common/Footer';
-import Navigation from '../Components/HomeComponents/Navigation';
+import Navigation from '../Components/Common/Navigation';
 import Stats from '../Components/HomeComponents/Stats';
 
 const schoolContact = [
