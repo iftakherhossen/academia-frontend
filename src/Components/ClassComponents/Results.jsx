@@ -1,27 +1,20 @@
-import html2canvas from 'html2canvas';
 import React, { useState } from 'react';
 import Pie from './Pie';
-
-const students = [
-     { id: "20231001", name: "Meherima Sara", fathersName: "Masud Alam", mothersName: "Shewly Akter", phone: "+0123456789", email: "meherimasara@academia.com", className: "play", roll: "01", result: "99" },
-     { id: "20232001", name: "Afraheem Ahmed", fathersName: "", mothersName: "Salma Akter", phone: "+0123456789", email: "afraheemahmed@academia.com", className: "nursery", roll: "01", result: "99" },
-     { id: "20232002", name: "Salman", fathersName: "Abul Kalam Azad", mothersName: "Salena Akter", phone: "+0123456789", email: "salman@academia.com", className: "nursery", roll: "02", result: "95" },
-]
+import database from '../../assets/database';
 
 const Results = ({ classNo }) => {
      const [resultCard, setResultCard] = useState([]);
      const [notFound, setNotFound] = useState(false);
      const [id, setId] = useState();
-     const [roll, setRoll] = useState();
 
      const handleSearch = (e) => {
           e.preventDefault();
-          setResultCard(students.filter(data => data.className === classNo && data.id === id && data.roll === roll));
-          if (students.filter(data => data.className !== classNo && data.id !== id && data.roll !== roll)) setNotFound(true)
+          setResultCard(database.students.filter(data => data.className === classNo && data.id === id));
+          if (database.students.filter(data => data.className !== classNo && data.id !== id)) setNotFound(true)
           e.target.reset();
      }
 
-     const results = students.filter(data => data.className === classNo);
+     const results = database.students.filter(data => data.className === classNo);
      const scoreArray = results.map(data => parseInt(data.result));
      let positions;
 
@@ -35,13 +28,12 @@ const Results = ({ classNo }) => {
      const year = date.getFullYear();
 
      return (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
                <div className="p-2">
-                    <h2 className="text-2xl font-bold text-black text-center mt-6">Search Result</h2>
+                    <h2 className="text-2xl font-bold text-black text-center">Search Result</h2>
                     <form className="w-2/3 flex flex-col justify-center items-center mx-auto py-6 text-black" onSubmit={(e) => handleSearch(e)}>
                          <input type="text" placeholder="Type Class *" className="input w-full text-lg font-semibold bg-slate-200 focus:outline-0 my-2.5 appearance-none capitalize" defaultValue={classNo} readOnly required />
-                         <input type="number" placeholder="Type ID Number *" className="input w-full text-lg font-semibold bg-slate-200 focus:outline-0 my-2.5 appearance-none" onChange={(e) => setId(e.target.value)} required minLength="8" maxLength="10" />
-                         <input type="number" placeholder="Type Roll Number *" className="input w-full text-lg font-semibold bg-slate-200 focus:outline-0 my-2.5 appearance-none" onChange={(e) => setRoll(e.target.value)} required minLength="1" maxLength="3" />
+                         <input type="number" placeholder="Type ID Number *" className="input w-full text-lg font-semibold bg-slate-200 focus:outline-0 my-2.5 appearance-none" onChange={(e) => setId(e.target.value)} required min="8" defaultValue={year} autoFocus />
                          <input type="text" placeholder="Type Session *" className="input w-full text-lg font-semibold bg-slate-200 focus:outline-0 my-2.5 appearance-none capitalize" defaultValue={year} readOnly required />
                          <button type="submit" className="btn w-full my-2.5 text-base bg-pastel-green text-white border-0">Search</button>
                     </form>
@@ -55,7 +47,6 @@ const Results = ({ classNo }) => {
                                              <h2 className="text-2xl font-bold mb-2">{data.name}</h2>
                                              <p>Class: {data.className}</p>
                                              <p>ID: {data.id}</p>
-                                             <p>Roll: {data.roll}</p>
                                              <p>Position: {positions.findIndex(i => i === 95) === 0 ? "First" : positions.findIndex(i => i === 95) === 1 ? "Second" : "Third"}</p>
                                         </div>
                                         <Pie result={parseInt(data.result)} />

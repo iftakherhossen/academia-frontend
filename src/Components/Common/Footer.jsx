@@ -25,7 +25,7 @@ const Footer = () => {
           <div className="bg-white">
                <footer className="footer container mx-auto p-10 text-black">
                     <div>
-                         <img src="https://academiaschool.edu.bd/wp-content/uploads/2022/05/cropped-Academia_Logo99-1.png" alt="Logo" className="w-16" />
+                         <img src="https://academiaschool.edu.bd/wp-content/uploads/2022/05/cropped-Academia_Logo99-1.png" alt="Logo" className="w-16" draggable={false} />
                          <h2 className="text-3xl font-bold">Academia</h2>
                          <p className="text-sm font-medium -mt-2">English Medium School</p>
                     </div>
@@ -59,7 +59,7 @@ const Footer = () => {
                     <input type="checkbox" id="admissionForm" className="modal-toggle" />
                     <div className="modal modal-bottom sm:modal-middle">
                          <div className="modal-box relative bg-white text-black sm:min-w-[800px]">
-                              <label htmlFor="admissionForm" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                              <label htmlFor="admissionForm" className="btn btn-sm btn-circle absolute right-2 top-2 bg-white  text-black border-black hover:text-white">✕</label>
                               <h3 className="text-2xl font-bold pl-1">Admission Form</h3>
                               <form className="pt-4 flex flex-col text-black">
                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -74,18 +74,18 @@ const Footer = () => {
                                    </div>
                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                         <div className="flex justify-start items-center pl-2 my-2">
-                                             <span className="font-semibold text-lg">Gender:</span>                                             
+                                             <span className="font-semibold text-lg">Gender:</span>
                                              <input type="radio" name="gender" className="radio mx-2 checked:bg-white" />
-                                             <span className="font-semibold text-lg">Male</span>                                             
+                                             <span className="font-semibold text-lg">Male</span>
                                              <input type="radio" name="gender" className="radio mx-2 checked:bg-white" />
                                              <span className="font-semibold text-lg mr-2">Female</span>
                                         </div>
                                         <div className="flex justify-start items-center pl-2 my-2">
-                                             <span className="font-semibold text-lg">Transportation Service:</span>                                             
+                                             <span className="font-semibold text-lg">Transportation Service:</span>
                                              <input type="radio" name="transportation" className="radio mx-2 checked:bg-white" />
                                              <span className="font-semibold text-lg">Yes</span>
                                              <input type="radio" name="transportation" className="radio mx-2 checked:bg-white" defaultChecked />
-                                             <span className="font-semibold text-lg mr-2">No</span>                                             
+                                             <span className="font-semibold text-lg mr-2">No</span>
                                         </div>
                                    </div>
                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -93,25 +93,32 @@ const Footer = () => {
                                         <input type="email" placeholder="Email Address *" className="input w-full text-lg font-semibold bg-slate-200 focus:outline-0 my-1.5 capitalize" required />
                                    </div>
                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                        <select className="select w-full text-lg font-semibold bg-slate-200 focus:outline-0 my-1.5 capitalize">
-                                             <option disabled selected>Select Class</option>
+                                        <select className="select w-full text-lg font-semibold bg-slate-200 focus:outline-0 my-1.5 capitalize" required>
+                                             <option disabled selected>Select Class *</option>
                                              {
-                                                  classes.map(({ name }) => <option>{name}</option>)
+                                                  classes.map(({ name }) => <option className="font-semibold" defaultValue={name} key={name}>{name}</option>)
                                              }
                                         </select>
-                                        <select className="select w-full text-lg font-semibold bg-slate-200 focus:outline-0 my-1.5 capitalize">
-                                             <option disabled selected>Select Branch</option>
-                                             <option>Mirpur (Main Campus)</option>
-                                             <option>Gulshan</option>
-                                             <option>Banani</option>
-                                             <option>Uttara</option>
+                                        <select className="select w-full text-lg font-semibold bg-slate-200 focus:outline-0 my-1.5 capitalize" required>
+                                             <option disabled selected>Select Branch *</option>
+                                             <option className="fon-semibold" defaultValue="Mirpur">Mirpur (Main Campus)</option>
+                                             <option className="fon-semibold" defaultValue="Gulshan">Gulshan</option>
+                                             <option className="fon-semibold" defaultValue="Banani">Banani</option>
+                                             <option className="fon-semibold" defaultValue="Uttara">Uttara</option>
                                         </select>
                                    </div>
-                                   <input type="text" placeholder="Address *" className="input w-full text-lg font-semibold bg-slate-200 focus:outline-0 my-1.5 capitalize" required />
+                                   <input type="text" placeholder="Address" className="input w-full text-lg font-semibold bg-slate-200 focus:outline-0 my-1.5 capitalize" />
                                    <div className="divider my-0"></div>
-                                   <p className="text-lg font-semibold text-center">Appointment Date</p>
-                                   <div className="tooltip tooltip-top" data-tip="Appointment Date">
-                                        <input type="date" className="input w-full text-lg font-semibold bg-slate-200 focus:outline-0 my-1.5" required />
+                                   <p className="text-lg font-semibold text-center">Appointment Date & Type</p>
+                                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                        <div className="tooltip tooltip-top" data-tip="Appointment Date">
+                                             <input type="date" className="input w-full text-lg font-semibold bg-slate-200 focus:outline-0 my-1.5" required />
+                                        </div>
+                                        <select className="select w-full text-lg font-semibold bg-slate-200 focus:outline-0 my-1.5 capitalize" required>
+                                             <option disabled selected>Appointment Type</option>
+                                             <option className="font-semibold" defaultValue="Offline">Offline</option>
+                                             <option className="font-semibold" defaultValue="Online">Online</option>
+                                        </select>
                                    </div>
                                    <button type="submit" className="btn w-full mt-2 text-lg bg-pastel-green text-white border-0">Send</button>
                               </form>

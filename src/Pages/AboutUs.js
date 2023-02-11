@@ -2,7 +2,6 @@ import React from 'react';
 import { BsBuilding, BsFacebook, BsInstagram, BsTwitter } from 'react-icons/bs';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import Footer from '../Components/Common/Footer';
 import Navigation from '../Components/Common/Navigation';
 import Stats from '../Components/HomeComponents/Stats';
 
@@ -64,10 +63,16 @@ const AboutUs = () => {
                               <div className="px-2">
                                    <h4 className="text-xl font-semibold pt-2">Why You should choose Academia?</h4>
                                    <ul className="pl-8 list-disc pt-3">
-                                        <li>lorem ipsum has been more powerful.</li>
-                                        <li>lorem ipsum has been more powerful.</li>
-                                        <li>lorem ipsum has been more powerful.</li>
-                                        <li>lorem ipsum has been more powerful.</li>
+                                        <li>Activity-Based Learning and Interactive Classroom; Extra-Curricular Activities such as Theater, Music, Art, Sports, Dance, Debate, Math Olympiad, Science Fair, Mock Cabinet, Spelling Bee, Community service clubs and Material Arts.</li>
+                                        <li>Effective parent-teacher collaboration.</li>
+                                        <li>Well-equipped computer, physics, biology and chemistry labs and libraries.</li>
+                                        <li>Information and Communication Technology Programmes.</li>
+                                        <li>House System, Clubs, and Society.</li>
+                                        <li>Focus on character education initiatives and 21st-century soft skills.</li>
+                                        <li>Ensures Best Grades in IGCSE exams.</li>
+                                        <li>The British Council and Edexcel & Cambridge approved the registration and examination Centre.</li>
+                                        <li>Class tests and Homework checking on a regular basis.</li>
+                                        <li>Special counseling for weak students.</li>
                                    </ul>
                               </div>
                          </div>
@@ -97,19 +102,6 @@ const AboutUs = () => {
                     </div>
                </div>  
                <Stats />
-               <div className="container mx-auto mt-14 mb-20">
-                    <div>
-                         <Carousel autoPlay={true} infiniteLoop={true} showArrows={false} showStatus={false} showThumbs={false}>
-                              <img src="https://loremflickr.com/1000/600/paris?random=1" alt="Carousel" className="w-full h-[600px]" />
-                              <img src="https://loremflickr.com/1000/600/brazil?random=2" alt="Carousel" className="w-full h-[600px]" />
-                              <img src="https://loremflickr.com/1000/600/paris?random=3" alt="Carousel" className="w-full h-[600px]" />
-                              <img src="https://loremflickr.com/1000/600/nature?random=4" alt="Carousel" className="w-full h-[600px]" />
-                              <img src="https://loremflickr.com/1000/600/brazil?random=5" alt="Carousel" className="w-full h-[600px]" />
-                              <img src="https://loremflickr.com/1000/600/nature?random=6" alt="Carousel" className="w-full h-[600px]" />
-                         </Carousel>
-                    </div>
-               </div>         
-               <Footer />
           </div>
      );
 };

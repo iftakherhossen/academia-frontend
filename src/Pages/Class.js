@@ -1,6 +1,5 @@
 import React from 'react';
 import ClassHomePage from '../Components/ClassComponents/ClassHomePage';
-import Footer from '../Components/Common/Footer';
 import Navigation from '../Components/Common/Navigation';
 
 const Class = () => {
@@ -8,7 +7,6 @@ const Class = () => {
           <div>
                <Navigation />
                <ClassHomePage />
-               <Footer />
           </div>
      );
 };

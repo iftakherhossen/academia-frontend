@@ -1,43 +1,10 @@
 import React from 'react';
-
-const admissionInfoColumnData = [
-     { title: "Class", key: "class" },
-     { title: "ADMISSION FEE", key: "admissionFee" },
-     { title: "Caution Money", key: "cautionMoney" },
-     { title: "Year Book", key: "yearBook" },
-     { title: "ID Card", key: "idCard" },     
-     { title: "Tuition Fee", key: "tuitionFee" },
-     { title: "Total", key: "total" }
-];
-
-const admissionInfoData = [{
-     admissionFee: 15000,
-     cautionMoney: 5000,
-     yearBook: 400,
-     idCard: 100,
-}];
-
-const tuitionFeeData = [
-     { class: "Play", tuitionFee: 8000 },
-     { class: "Nursery", tuitionFee: 8100 },
-     { class: "Class-1", tuitionFee: 8700 },
-     { class: "Class-2", tuitionFee: 8900 },
-     { class: "Class-3", tuitionFee: 9100 },
-     { class: "Class-4", tuitionFee: 9200 },
-     { class: "Class-5", tuitionFee: 9400 },
-     { class: "Class-6", tuitionFee: 9500 },
-     { class: "Class-7", tuitionFee: 9600 },
-     { class: "Class-8", tuitionFee: 9700 },
-     { class: "Class-9", tuitionFee: 9700 },
-     { class: "Class-10", tuitionFee: 9700 },
-];
+import database from '../../assets/database';
 
 const AdmissionInfo = ({ classNo }) => {
      const others = 15000 + 5000 + 400 + 100;
-     const tuitionCost = tuitionFeeData.find(data => data.class.toLowerCase() === classNo);
+     const tuitionCost = database.tuitionFeeData.find(data => data.class.toLowerCase() === classNo);
      const total = others + tuitionCost.tuitionFee;
-
-     console.log(classNo);
 
      return (
           <div className="container mx-auto">
@@ -46,20 +13,20 @@ const AdmissionInfo = ({ classNo }) => {
                     <table className="w-full mt-5 mb-10 text-black text-lg">
                          <tr>
                               {
-                                   admissionInfoColumnData?.map(({ title, key }) =>
-                                        <th key={key} className="p-2.5 text-center">{title}</th>
+                                   database.admissionInfoColumnData.map(title =>
+                                        <th key={title} className="p-2.5 text-center font-bold">{title}</th>
                                    )
                               }
                          </tr>
                          {
-                              admissionInfoData?.map((data, index) => <tr key={index} className="font-medium">
-                                   <td className="p-2.5 text-center capitalize">{classNo}</td>
+                              database.admissionInfoData?.map((data, index) => <tr key={index} className="font-medium">
+                                   <td className="p-2.5 text-center capitalize font-semibold">{classNo}</td>
                                    <td className="p-2.5 text-center">{data?.admissionFee} ৳</td>
                                    <td className="p-2.5 text-center">{data?.cautionMoney} ৳</td>
                                    <td className="p-2.5 text-center">{data?.yearBook} ৳</td>
                                    <td className="p-2.5 text-center">{data?.idCard} ৳</td>
                                    {
-                                        tuitionFeeData?.map(data => data?.class.toLowerCase() === classNo && <td className="p-2.5 text-center">
+                                        database.tuitionFeeData?.map(data => data?.class.toLowerCase() === classNo && <td className="p-2.5 text-center">
                                              {data.tuitionFee} ৳
                                         </td>)
                                    }
@@ -91,7 +58,73 @@ const AdmissionInfo = ({ classNo }) => {
                     </div>
                </div>
                <div className="flex justify-center items-center mt-16">
-                    <button className="btn btn-wide bg-pastel-green text-white border-0 text-lg shadow-sm hover:shadow-lg">Admission Form</button>
+                    <label htmlFor="admissionForm" className="btn btn-wide bg-pastel-green text-white border-0 text-lg shadow-sm hover:shadow-lg">Admission Form</label>
+               </div>
+
+               {/* Admission Form Modal */}
+               <div>
+                    <input type="checkbox" id="admissionForm" className="modal-toggle" />
+                    <div className="modal modal-bottom sm:modal-middle">
+                         <div className="modal-box relative bg-white text-black sm:min-w-[800px]">
+                              <label htmlFor="admissionForm" className="btn btn-sm btn-circle absolute right-2 top-2 bg-white  text-black border-black hover:text-white">✕</label>
+                              <h3 className="text-2xl font-bold pl-1">Admission Form</h3>
+                              <form className="pt-4 flex flex-col text-black">
+                                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                        <input type="text" placeholder="Full Name *" className="input w-full text-lg font-semibold bg-slate-200 focus:outline-0 capitalize" required />
+                                        <div className="tooltip tooltip-bottom" data-tip="Date of Birth">
+                                             <input type="date" className="input w-full text-lg font-semibold bg-slate-200 focus:outline-0" required />
+                                        </div>
+                                        <input type="text" placeholder="Fathers Name *" className="input w-full text-lg font-semibold bg-slate-200 focus:outline-0 capitalize" required />
+                                        <input type="text" placeholder="Mothers Name *" className="input w-full text-lg font-semibold bg-slate-200 focus:outline-0 capitalize" required />
+                                   </div>
+                                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                        <div className="flex justify-start items-center pl-2 mt-2">
+                                             <span className="font-semibold text-lg">Gender:</span>                                             
+                                             <input type="radio" name="gender" className="radio mx-2 checked:bg-white" />
+                                             <span className="font-semibold text-lg">Male</span>                                             
+                                             <input type="radio" name="gender" className="radio mx-2 checked:bg-white" />
+                                             <span className="font-semibold text-lg mr-2">Female</span>
+                                        </div>
+                                        <div className="flex justify-start items-center pl-2 mt-2">
+                                             <span className="font-semibold text-lg">Transportation Service:</span>                                             
+                                             <input type="radio" name="transportation" className="radio mx-2 checked:bg-white" />
+                                             <span className="font-semibold text-lg">Yes</span>
+                                             <input type="radio" name="transportation" className="radio mx-2 checked:bg-white" defaultChecked />
+                                             <span className="font-semibold text-lg mr-2">No</span>                                             
+                                        </div>
+                                        <input type="tel" placeholder="Phone Number *" className="input w-full text-lg font-semibold bg-slate-200 focus:outline-0 capitalize" required />
+                                        <input type="email" placeholder="Email Address *" className="input w-full text-lg font-semibold bg-slate-200 focus:outline-0 capitalize" required />
+                                        <select className="select w-full text-lg font-semibold bg-slate-200 focus:outline-0 capitalize" required>
+                                             <option disabled selected>Select Class *</option>
+                                             {
+                                                  database.classes.map(({ name }) => <option className="font-semibold" defaultValue={name} key={name}>{name}</option>)
+                                             }
+                                        </select>
+                                        <select className="select w-full text-lg font-semibold bg-slate-200 focus:outline-0 capitalize" required>
+                                             <option disabled selected>Select Branch *</option>
+                                             <option className="fon-semibold" defaultValue="Mirpur">Mirpur (Main Campus)</option>
+                                             <option className="fon-semibold" defaultValue="Gulshan">Gulshan</option>
+                                             <option className="fon-semibold" defaultValue="Banani">Banani</option>
+                                             <option className="fon-semibold" defaultValue="Uttara">Uttara</option>
+                                        </select>
+                                   </div>
+                                   <input type="text" placeholder="Address" className="input w-full text-lg font-semibold bg-slate-200 focus:outline-0 mt-3 mb-1.5 capitalize" />
+                                   <div className="divider my-0"></div>
+                                   <p className="text-lg font-semibold text-center">Appointment Date & Type</p>
+                                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                        <div className="tooltip tooltip-top" data-tip="Appointment Date">
+                                             <input type="date" className="input w-full text-lg font-semibold bg-slate-200 focus:outline-0 my-1.5" required />
+                                        </div>
+                                        <select className="select w-full text-lg font-semibold bg-slate-200 focus:outline-0 my-1.5 capitalize" required>
+                                             <option disabled selected>Appointment Type</option>
+                                             <option className="font-semibold" defaultValue="Offline">Offline</option>
+                                             <option className="font-semibold" defaultValue="Online">Online</option>
+                                        </select>
+                                   </div>
+                                   <button type="submit" className="btn w-full mt-2 text-lg bg-pastel-green text-white border-0">Send</button>
+                              </form>
+                         </div>
+                    </div>
                </div>
           </div>
      );

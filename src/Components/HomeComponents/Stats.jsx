@@ -20,7 +20,7 @@ new PureCounter({
 
 const Stats = () => {
      return (
-          <div className="stats-bg">
+          <div className="stats-bg select-none">
                <div className="bg-[#90857954]">
                     <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 p-16 text-white">
                          <div className="flex justify-center items-center my-4">

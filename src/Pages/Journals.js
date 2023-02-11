@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Footer from '../Components/Common/Footer';
 import Heading from '../Components/Common/Heading';
 import Navigation from '../Components/Common/Navigation';
 import JournalsCard from '../Components/JournalsComponents/JournalsCard';
@@ -123,7 +122,6 @@ const Journals = () => {
                          <button className="btn btn-wide bg-pastel-green border-0 text-white shadow hover:shadow-xl" onClick={() => setLoadMore(!loadMore)}>Load More!</button>
                     </div>
                </div>
-               <Footer />
           </div>
      );
 };

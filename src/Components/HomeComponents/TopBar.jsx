@@ -4,7 +4,7 @@ import { BsFacebook, BsInstagram, BsTwitter, BsYoutube } from 'react-icons/bs';
 
 const TopBar = () => {
      return (
-          <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 py-3 text-white">
+          <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 py-3 text-white select-none">
                <div className="p-2">
                     <div>
                          <h2 className="text-3xl uppercase font-bold tracking-wide">Academia</h2>

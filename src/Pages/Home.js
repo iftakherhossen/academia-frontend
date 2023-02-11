@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from '../Components/Common/Footer';
 import ClassWrapper from '../Components/HomeComponents/ClassWrapper';
 import Events from '../Components/HomeComponents/Events';
 import Features from '../Components/HomeComponents/Features';
@@ -15,10 +14,9 @@ const Home = () => {
                <Features />
                <Stats />
                <ClassWrapper />
-               <NoticeBoard />
-               <Testimonials />
+               <NoticeBoard />               
                <Events />
-               <Footer />
+               <Testimonials />
           </div>
      );
 };

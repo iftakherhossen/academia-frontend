@@ -1,20 +1,6 @@
 import React from 'react';
 import { BsArrowRight } from 'react-icons/bs';
-
-const classes = [
-     { id: 1, name: "Play", icon: "ri-store-line", color: "#ffbb2c", link: "play" },
-     { id: 2, name: "Nursery", icon: "ri-bar-chart-box-line", color: "#5578ff", link: "nursery" },
-     { id: 3, name: "Class-One", icon: "ri-calendar-todo-line", color: "#e80368", link: "class-1" },
-     { id: 4, name: "Class-Two", icon: "ri-paint-brush-line", color: "#e361ff", link: "class-2" },
-     { id: 5, name: "Class-Three", icon: "ri-database-2-line", color: "#47aeff", link: "class-3" },
-     { id: 6, name: "Class-Four", icon: "ri-gradienter-line", color: "#ffa76e", link: "class-4" },
-     { id: 7, name: "Class-Five", icon: "ri-file-list-3-line", color: "#11dbcf", link: "class-5" },
-     { id: 8, name: "Class-Six", icon: "ri-price-tag-2-line", color: "#4233ff", link: "class-6" },
-     { id: 9, name: "Class-Seven", icon: "ri-anchor-line", color: "#b2904f", link: "class-7" },
-     { id: 10, name: "Class-Eight", icon: "ri-disc-line", color: "#b20969", link: "class-8" },
-     { id: 11, name: "Class-Nine", icon: "ri-base-station-line", color: "#ff5828", link: "class-9" },
-     { id: 12, name: "Class-Ten", icon: "ri-fingerprint-line", color: "#29cc61", link: "class-10" },
-];
+import database from '../../assets/database';
 
 const Header = () => {
      return (
@@ -69,15 +55,15 @@ const Header = () => {
                                         <select className="select w-full text-lg font-semibold bg-slate-200 focus:outline-0 my-1.5 capitalize" required>
                                              <option disabled selected>Select Class *</option>
                                              {
-                                                  classes.map(({ name }) => <option className="font-semibold" value={name}>{name}</option>)
+                                                  database.classes.map(({ name }) => <option className="font-semibold" defaultValue={name} key={name}>{name}</option>)
                                              }
                                         </select>
                                         <select className="select w-full text-lg font-semibold bg-slate-200 focus:outline-0 my-1.5 capitalize" required>
                                              <option disabled selected>Select Branch *</option>
-                                             <option className="fon-semibold" value="Mirpur">Mirpur (Main Campus)</option>
-                                             <option className="fon-semibold" value="Gulshan">Gulshan</option>
-                                             <option className="fon-semibold" value="Banani">Banani</option>
-                                             <option className="fon-semibold" value="Uttara">Uttara</option>
+                                             <option className="fon-semibold" defaultValue="Mirpur">Mirpur (Main Campus)</option>
+                                             <option className="fon-semibold" defaultValue="Gulshan">Gulshan</option>
+                                             <option className="fon-semibold" defaultValue="Banani">Banani</option>
+                                             <option className="fon-semibold" defaultValue="Uttara">Uttara</option>
                                         </select>
                                    </div>
                                    <input type="text" placeholder="Address" className="input w-full text-lg font-semibold bg-slate-200 focus:outline-0 my-1.5 capitalize" />
@@ -89,8 +75,8 @@ const Header = () => {
                                         </div>
                                         <select className="select w-full text-lg font-semibold bg-slate-200 focus:outline-0 my-1.5 capitalize" required>
                                              <option disabled selected>Appointment Type</option>
-                                             <option className="font-semibold" value="Offline">Offline</option>
-                                             <option className="font-semibold" value="Online">Online</option>
+                                             <option className="font-semibold" defaultValue="Offline">Offline</option>
+                                             <option className="font-semibold" defaultValue="Online">Online</option>
                                         </select>
                                    </div>
                                    <button type="submit" className="btn w-full mt-2 text-lg bg-pastel-green text-white border-0">Send</button>

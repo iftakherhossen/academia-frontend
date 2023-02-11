@@ -7,7 +7,7 @@ const HeroSection = () => {
      return (
           <div className="parallax">
                <TopBar />
-               <Navigation />
+               <Navigation home={true} />
                <Header />
           </div>
      );

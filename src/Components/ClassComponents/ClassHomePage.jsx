@@ -18,7 +18,7 @@ const ClassHomePage = () => {
                <div className="h-full pt-20 pb-4 text-center">
                     <h2 className="text-[2.5rem] font-semibold text-black capitalize">Resources for <span className="text-pastel-green font-bold">{params.class}</span></h2>
                </div>
-               <div className="px-4 md:px-0 py-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 select-none">
+               <div className="px-4 md:px-0 py-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-3 select-none">
                     <div className={`rounded-md py-3 ${admission === true ? "shadow-md" : "shadow-sm"} hover:shadow-md cursor-pointer text-black hover:bg-[#1EB2A6] hover:text-white ${admission === true && "bg-[#1EB2A6] text-white"}`} onClick={() => { setAdmission(true); setLearning(false); setResults(false); setStudents(false) }}>
                          <h3 className="text-xl font-bold text-center">Admission Info</h3>
                     </div>

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import './App.css';
 import Loader from './Components/Common/Loader';
 import ScrollToTop from './Components/Common/ScrollToTop';
+import CreateAccount from './Components/DashboardComponents/CreateAccount';
 import ManageAcademicInfo from './Components/DashboardComponents/ManageAcademicInfo';
 import ManageAdmissionForms from './Components/DashboardComponents/ManageAdmissionForms';
 import ManageEvents from './Components/DashboardComponents/ManageEvents';
@@ -10,6 +11,7 @@ import ManageNotices from './Components/DashboardComponents/ManageNotices';
 import ManageStuffs from './Components/DashboardComponents/ManageStuffs';
 import ManageTestimonial from './Components/DashboardComponents/ManageTestimonial';
 import WelcomeBoard from './Components/DashboardComponents/WelcomeBoard';
+import AuthProvider from './context/AuthProvider/AuthProvider';
 import AboutUs from './Pages/AboutUs';
 import Class from './Pages/Class';
 import Dashboard from './Pages/Dashboard';
@@ -17,6 +19,8 @@ import Home from './Pages/Home';
 import Journals from './Pages/Journals';
 import NotFound from './Pages/NotFound';
 import Stuffs from './Pages/Stuffs';
+import { Toaster } from 'react-hot-toast';
+import Footer from './Components/Common/Footer';
 
 function App() {
     const [loading, setLoading] = useState(false);
@@ -29,7 +33,7 @@ function App() {
    }, []);
 
     return (
-        <div>
+        <AuthProvider>
             {
                 loading ? <Loader /> : <Router>
                     <ScrollToTop>
@@ -50,13 +54,19 @@ function App() {
                             <Route path="manage-events" element={<ManageEvents />} />
                             <Route path="manage-stuffs" element={<ManageStuffs />} />
                             <Route path="manage-admission-forms" element={<ManageAdmissionForms />} />
+                            <Route path="create-account" element={<CreateAccount />} />
                         </Route>
                         <Route path="*" element={<NotFound />} /> 
                     </Routes>                    
                     </ScrollToTop>
-                </Router>
+                    <Footer />
+                </Router>                
             }
-        </div>
+            <Toaster
+                position="bottom-center"
+                reverseOrder={false}
+            />
+        </AuthProvider>
     );
 };
 

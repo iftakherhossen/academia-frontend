@@ -22,7 +22,7 @@ const SearchBarWrapper = ({ searchedValue, requestSearch, cancelSearch, searched
                     </p>
                </div>
                <div className="max:h-[13rem] mt-6">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 px-4 md:px-0 text-black">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 px-4 md:px-0 text-black">
                          {
                               searchedResult.length > 0 ? searchedResult.slice(0, resultSlicedValue).map(({ title, url }) => <a href={url} key={title}>
                                    <div className="card bg-white h-full">

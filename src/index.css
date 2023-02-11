@@ -13,7 +13,7 @@ body {
   font-family: 'Roboto Slab', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  scroll-behavior: smooth;
+  scroll-behavior: smooth !important;
   background-color: #F8F8F8 !important;
   transition: 0.3s all ease-in-out !important;
 }
@@ -31,4 +31,14 @@ code {
 ::selection {
   color: #F8F8F8;
   background: #1EB2A6;
+}
+
+
+@layer components {
+  .profileTableHeading {
+    @apply w-full flex justify-between items-center px-3 py-1.5 text-lg border-0 border-transparent;
+  }
+  .profileTableData {
+    @apply w-2/3 text-left px-3 py-1.5 text-lg border-0 border-transparent;
+  }
 }
