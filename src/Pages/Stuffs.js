@@ -1,21 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import database from '../assets/database';
 import Heading from '../Components/Common/Heading';
 import Navigation from '../Components/Common/Navigation';
 import CardWrapper from '../Components/StuffsComponents/CardWrapper';
 
-const governingBodyData = [
-     { id: 1, name: "A", img: "", designation: "" },
-     { id: 2, name: "B", img: "", designation: "" },
-];
-const teachersData = [
-     { id: 1001, name: "Centenio", img: "https://images.unsplash.com/photo-1548449112-96a38a643324?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8dGVhY2hlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60", degree: "M.Sc in Math", designation: "Math Teacher", email: "centenio@acdemia.bd" },
-     { id: 1002, name: "Don Rane", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MnxuMVYzWEExWEphRXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=500&q=60", degree: "M.A in English", designation: "English Teacher", email: "donrane@acdemia.bd" },
-];
-
 const Stuffs = () => {
      let location = useLocation();
+     const [randomStudents1, setRandomStudents1] = useState([]);
+     const [randomStudents2, setRandomStudents2] = useState([]);
+     const [loadMore, setLoadMore] = useState(false);
+     let slicedValue;
+     if (loadMore === true) slicedValue = 44;
+     else slicedValue = 20;
+
+     useEffect(() => {
+          fetch('https://fakerapi.it/api/v1/persons')
+               .then(res => res.json())
+               .then(data => setRandomStudents1(data.data));
+
+          fetch('https://jsonplaceholder.typicode.com/users')
+               .then(res => res.json())
+               .then(data => setRandomStudents2(data));
+     }, []);
 
      return (
           <div>
@@ -30,7 +37,10 @@ const Stuffs = () => {
                     {
                          location.pathname === "/teachers" && <div>
                               <Heading text={"Our Expert Teachers"} />
-                              <CardWrapper data={database.teachers} />
+                              <CardWrapper data={[...database.teachers, ...randomStudents1, ...randomStudents2]} slicedValue={slicedValue} />
+                              <div className="flex justify-center mt-16">
+                                   <button className="btn btn-sm h-10 px-8 tracking-wide bg-pastel-green border-0 text-white text-base" onClick={() => setLoadMore(!loadMore)}>{loadMore === false ? "Show More!" : "Show Less!"}</button>
+                              </div>
                          </div>
                     }
                     {

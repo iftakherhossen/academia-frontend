@@ -29,7 +29,7 @@ const Stats = () => {
                               </div>
                               <div>
                                    <h2 className="text-4xl font-bold">
-                                        <span data-purecounter-start="0" data-purecounter-end="4" data-purecounter-duration="1" className=" purecounter">4</span>
+                                        <span data-purecounter-start="0" data-purecounter-end="4" data-purecounter-duration="1" className="purecounter">4</span>
                                    </h2>
                                    <p className="text-xl font-medium">Campus</p>
                               </div>
@@ -40,7 +40,7 @@ const Stats = () => {
                               </div>
                               <div>
                                    <h2 className="text-4xl font-bold">
-                                        <span data-purecounter-start="0" data-purecounter-end="5000" data-purecounter-separator="true" data-purecounter-separatorsymbol="," data-purecounter-duration="3" className=" purecounter">5,000</span>+
+                                        <span data-purecounter-start="0" data-purecounter-end="10000" data-purecounter-separator="true" data-purecounter-separatorsymbol="," data-purecounter-duration="3" className="purecounter">10,000</span>+
                                    </h2>
                                    <p className="text-xl font-medium">Students</p>
                               </div>
@@ -51,7 +51,7 @@ const Stats = () => {
                               </div>
                               <div>
                                    <h2 className="text-4xl font-bold">
-                                        <span data-purecounter-start="0" data-purecounter-end="350" data-purecounter-duration="3" className="purecounter">350</span>+
+                                        <span data-purecounter-start="0" data-purecounter-end="380" data-purecounter-duration="3" className="purecounter">380</span>+
                                    </h2>
                                    <p className="text-xl font-medium">Teachers</p>
                               </div>

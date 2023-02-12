@@ -19,18 +19,18 @@ const AdmissionInfo = ({ classNo }) => {
                               }
                          </tr>
                          {
-                              database.admissionInfoData?.map((data, index) => <tr key={index} className="font-medium">
+                              database.admissionInfoData.map((data, index) => <tr key={index} className="font-medium">
                                    <td className="p-2.5 text-center capitalize font-semibold">{classNo}</td>
-                                   <td className="p-2.5 text-center">{data?.admissionFee} ৳</td>
-                                   <td className="p-2.5 text-center">{data?.cautionMoney} ৳</td>
-                                   <td className="p-2.5 text-center">{data?.yearBook} ৳</td>
-                                   <td className="p-2.5 text-center">{data?.idCard} ৳</td>
+                                   <td className="p-2.5 text-center">{data.admissionFee} ৳</td>
+                                   <td className="p-2.5 text-center">{data.cautionMoney} ৳</td>
+                                   <td className="p-2.5 text-center">{data.yearBook} ৳</td>
+                                   <td className="p-2.5 text-center">{data.idCard} ৳</td>
                                    {
-                                        database.tuitionFeeData?.map(data => data?.class.toLowerCase() === classNo && <td className="p-2.5 text-center">
+                                        database.tuitionFeeData?.map(data => data.class.toLowerCase() === classNo && <td className="p-2.5 text-center">
                                              {data.tuitionFee} ৳
                                         </td>)
                                    }
-                                   <td className="p-2.5 text-center">{total} ৳</td>                                   
+                                   <td className="p-2.5 text-center">{total} ৳</td>
                               </tr>)
                          }
                     </table>
@@ -79,18 +79,18 @@ const AdmissionInfo = ({ classNo }) => {
                                    </div>
                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                         <div className="flex justify-start items-center pl-2 mt-2">
-                                             <span className="font-semibold text-lg">Gender:</span>                                             
+                                             <span className="font-semibold text-lg">Gender:</span>
                                              <input type="radio" name="gender" className="radio mx-2 checked:bg-white" />
-                                             <span className="font-semibold text-lg">Male</span>                                             
+                                             <span className="font-semibold text-lg">Male</span>
                                              <input type="radio" name="gender" className="radio mx-2 checked:bg-white" />
                                              <span className="font-semibold text-lg mr-2">Female</span>
                                         </div>
                                         <div className="flex justify-start items-center pl-2 mt-2">
-                                             <span className="font-semibold text-lg">Transportation Service:</span>                                             
+                                             <span className="font-semibold text-lg">Transportation Service:</span>
                                              <input type="radio" name="transportation" className="radio mx-2 checked:bg-white" />
                                              <span className="font-semibold text-lg">Yes</span>
                                              <input type="radio" name="transportation" className="radio mx-2 checked:bg-white" defaultChecked />
-                                             <span className="font-semibold text-lg mr-2">No</span>                                             
+                                             <span className="font-semibold text-lg mr-2">No</span>
                                         </div>
                                         <input type="tel" placeholder="Phone Number *" className="input w-full text-lg font-semibold bg-slate-200 focus:outline-0 capitalize" required />
                                         <input type="email" placeholder="Email Address *" className="input w-full text-lg font-semibold bg-slate-200 focus:outline-0 capitalize" required />
