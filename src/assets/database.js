@@ -88,7 +88,7 @@ const database = {
      ],
      user: [
          { id: 10109, name: "Iftakher Hossen", email: "iftakher.one@gmail.com", role: "Admin" },
-         { id: 14064, name: "Tarek Munshi", email: "", role: "Teacher"},
+         { id: 14064, name: "Tarek Munshi", email: "tarekmunshi@gmail.com", role: "Teacher"},
          { id: 51700, name: "Yeasin Arafat Shawon", email: "yeasinarafat@academia.bd", role: "Student", classNo: "class-10" }
      ],
      teachers: [
@@ -174,6 +174,26 @@ const database = {
           { title: "Manage Stuffs" },
           { title: "Manage Admission Forms" },
           { title: "Create Account" }
+     ],
+     photos: [          
+          { id: 1, title: "Edexcel High Achievers’ Award & Daily Star Award", src: "https://academiaschool.edu.bd/wp-content/uploads/2022/06/4-scaled.jpg" },
+          { id: 2, title: "District Level Debate Championship", src: "https://academiaschool.edu.bd/wp-content/uploads/2022/06/11.jpg" },
+          { id: 3, title: "Science Fair 2023", src: "https://academiaschool.edu.bd/wp-content/uploads/2022/05/Image3-1.png" },
+     ],
+     examCandidates: [
+          { id: 1, session: "2023 (Edexcel)", totalCandidates: 1513, oLevel: 885, aLevel: 728, aStar: 1509 },
+          { id: 2, session: "2023 (Cambridge)", totalCandidates: "", oLevel: "", aLevel: "", aStar: "" },
+          { id: 3, session: "2022 (Edexcel)", totalCandidates: 1103, oLevel: 480, aLevel: 623, aStar: 1092  },
+          { id: 4, session: "2022 (Cambridge)", totalCandidates: 1251, oLevel: 551, aLevel: 700, aStar: 1220 },
+          { id: 5, session: "2021 (Edexcel)", totalCandidates: 994, oLevel: 308, aLevel: 686, aStar: 988 },
+          { id: 6, session: "2021 (Cambridge)", totalCandidates: 1435, oLevel: 852, aLevel: 683, aStar: 1428 },
+          { id: 7, session: "2020 (Edexcel)", totalCandidates: 2411, oLevel: 1115, aLevel: 1296, aStar: 2409 },
+          { id: 8, session: "2020 (Cambridge)", totalCandidates: 862, oLevel: 301, aLevel: 561, aStar: 859 },
+     ],
+     videos: [
+          { id: 1, title: "Academia: Best English medium school in Bangladesh", src: "https://www.youtube.com/embed/l5UhZNbaBq0" },
+          { id: 2, title: "Pearson Edexcel Principals' Meet on 31 May, 2022", src: "https://www.youtube.com/embed/FuIPtWlPe9o" },
+          { id: 3, title: "Edexcel or Cambridge which curriculum is better and why?", src: "https://www.youtube.com/embed/F7kcV6n0wfk" },
      ],
 };
 

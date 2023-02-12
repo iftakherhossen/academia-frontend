@@ -78,6 +78,7 @@ const AboutUs = () => {
                          </div>
                          <div className="tooltip tooltip-bottom" data-tip="Principle Sir">
                               <img src="https://gray-kwtx-prod.cdn.arcpublishing.com/resizer/cI-NVdgTlwBAehYJ1wVKZPBESLU=/1200x675/smart/filters:quality(85)/cloudfront-us-east-1.images.arcpublishing.com/gray/PNLLGQBX2JNZRELHBIFRJVJOKE.jpg" alt="Cover" className="w-full" draggable={false} />
+                              <p className="text-black mt-5 text-base text-justify">Academia is maturing every year. Every academia year had been a notable one for Academia in many respects. In the academic field the students have maintained their high standards and have continued to be recognized as high achievers. Students who sit for O’Level exams had been making ACADEMIA proud by their brilliant performance, as always. Many of them got The Daily Star Award and Edexcel High Achiever’s Award in recognition of their Excellence…</p>
                          </div>
                     </div>                    
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 my-16 text-black">

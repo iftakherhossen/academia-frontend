@@ -22,7 +22,7 @@ const Footer = () => {
      const year = date.getFullYear();
 
      return (
-          <div className="bg-white">
+          <div className="bg-white select-none">
                <footer className="footer container mx-auto p-10 text-black">
                     <div>
                          <img src="https://academiaschool.edu.bd/wp-content/uploads/2022/05/cropped-Academia_Logo99-1.png" alt="Logo" className="w-16" draggable={false} />

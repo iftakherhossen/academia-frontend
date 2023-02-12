@@ -21,6 +21,7 @@ import NotFound from './Pages/NotFound';
 import Stuffs from './Pages/Stuffs';
 import { Toaster } from 'react-hot-toast';
 import Footer from './Components/Common/Footer';
+import Gallery from './Pages/Gallery';
 
 function App() {
     const [loading, setLoading] = useState(false);
@@ -41,7 +42,8 @@ function App() {
                         <Route exact path="/" element={<Home />} />
                         <Route path="/home" element={<Home />} />
                         <Route path="/academic/:class" element={<Class />} />
-                        <Route path="/about-us" element={<AboutUs />} />
+                        <Route path="/gallery" element={<Gallery />} />
+                        <Route path="/about-us" element={<AboutUs />} />                        
                         <Route path="/governing-body" element={<Stuffs />} />
                         <Route path="/teachers" element={<Stuffs />} />
                         <Route path="/stuffs" element={<Stuffs />} />
