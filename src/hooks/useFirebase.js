@@ -57,35 +57,33 @@ const useFirebase = () => {
             });
     }
 
-    // // Login User
-    // const loginUser = (email, password, navigate) => {
-    //     setUser({
-    //         email: email
-    //     })
-    //     signInWithEmailAndPassword(auth, email, password)
-    //         .then((userCredential) => {
-    //             navigate("/cg-admin-dashboard")
-    //             setAuthError("");
-    //         })
-    //         .catch((error) => {
-    //             setAuthError(error.message);
-    //             authError && Swal.fire(
-    //                 'Something went wrong!',
-    //                 `Please try again. ${authError}`,
-    //                 'error'
-    //             );
-    //         })
-    //         .finally(() => {
-    //             setIsLoading(false);
-    //             setSuccess(true);
-    //             success && Swal.fire(
-    //                 'Login Successfully!',
-    //                 'Welcome to Classic Group Website',
-    //                 'success'
-    //             );
-    //             navigate("/cg-admin-dashboard")
-    //         });
-    // }
+    // Login User
+    const loginUser = (email, password) => {
+        setUser({
+            email: email
+        })
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                setAuthError("");
+            })
+            .catch((error) => {
+                setAuthError(error.message);
+                authError && Swal.fire(
+                    'Something went wrong!',
+                    `Please try again. ${authError}`,
+                    'error'
+                );
+            })
+            .finally(() => {
+                setIsLoading(false);
+                setSuccess(true);
+                success && Swal.fire(
+                    'Login Successfully!',
+                    'Welcome to Academia',
+                    'success'
+                );
+            });
+    }
 
     // google sign in
     const signInWithGoogle = () => {
@@ -201,7 +199,7 @@ const useFirebase = () => {
 
     return {
         registerUser,
-        // loginUser,
+        loginUser,
         signInWithGoogle,
         logOut,
         user,

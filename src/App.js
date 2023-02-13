@@ -22,6 +22,9 @@ import Stuffs from './Pages/Stuffs';
 import { Toaster } from 'react-hot-toast';
 import Footer from './Components/Common/Footer';
 import Gallery from './Pages/Gallery';
+import AdminRoute from './Components/Authentication/AdminRoute';
+import Forum from './Pages/Forum';
+import PrivateRoute from './Components/Authentication/PrivateRoute';
 
 function App() {
     const [loading, setLoading] = useState(false);
@@ -48,15 +51,16 @@ function App() {
                         <Route path="/teachers" element={<Stuffs />} />
                         <Route path="/stuffs" element={<Stuffs />} />
                         <Route path="/journals" element={<Journals />} />
-                        <Route path="/dashboard" exact element={<Dashboard />}>
-                            <Route index element={<WelcomeBoard />} />
-                            <Route path="manage-academic-info" element={<ManageAcademicInfo />} />
-                            <Route path="manage-notices" element={<ManageNotices />} />
-                            <Route path="manage-testimonials" element={<ManageTestimonial />} />
-                            <Route path="manage-events" element={<ManageEvents />} />
-                            <Route path="manage-stuffs" element={<ManageStuffs />} />
-                            <Route path="manage-admission-forms" element={<ManageAdmissionForms />} />
-                            <Route path="create-account" element={<CreateAccount />} />
+                        <Route path="/forum" element={<PrivateRoute><Forum /></PrivateRoute>} />
+                        <Route path="/dashboard" exact element={<AdminRoute><Dashboard /></AdminRoute>}>
+                            <Route index element={<AdminRoute><WelcomeBoard /></AdminRoute>} />
+                            <Route path="manage-academic-info" element={<AdminRoute><ManageAcademicInfo /></AdminRoute>} />
+                            <Route path="manage-notices" element={<AdminRoute><ManageNotices /></AdminRoute>} />
+                            <Route path="manage-testimonials" element={<AdminRoute><ManageTestimonial /></AdminRoute>} />
+                            <Route path="manage-events" element={<AdminRoute><ManageEvents /></AdminRoute>} />
+                            <Route path="manage-stuffs" element={<AdminRoute><ManageStuffs /></AdminRoute>} />
+                            <Route path="manage-admission-forms" element={<AdminRoute><ManageAdmissionForms /></AdminRoute>} />
+                            <Route path="create-account" element={<AdminRoute><CreateAccount /></AdminRoute>} />
                         </Route>
                         <Route path="*" element={<NotFound />} /> 
                     </Routes>                    

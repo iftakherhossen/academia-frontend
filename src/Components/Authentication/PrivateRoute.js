@@ -9,9 +9,6 @@ const PrivateRoute = ({ children, ...rest }) => {
 
      if (isLoading) return <Loader />
      else if (user.email) return children;
-     document.getElementById('admin-login').checked = true;
-     document.getElementById('teacher-login').checked = true;
-     document.getElementById('student-login').checked = true;
 
      return <Navigate to="/" state={{ from: location }} />;
 };

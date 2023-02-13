@@ -35,7 +35,7 @@ const Text = ({ percentage }) => {
 
 const Pie = ({ result }) => {
      return (
-          <svg width={200} height={200}>
+          <svg width={200} height={200} className="select-none">
                <g transform={`rotate(-0 ${"100 100"})`}>
                     <Circle color="lightgrey" />
                     <Circle color="#1EB2A6" percentage={result} />

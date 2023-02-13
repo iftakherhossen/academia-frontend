@@ -6,11 +6,11 @@ import Loader from '../Common/Loader';
 
 const AdminRoute = ({ children, ...rest }) => {
      const { user, isLoading } = useAuth();
-     const userData = database.user.find(data => data);
+     const userData = database.users.find(data => data.email === user.email);
      const location = useLocation();
 
      if (isLoading) <Loader />
-     else if (user.email && userData.role !== "Student") return children;
+     else if (user.email && userData.role === "Admin") return children;
      
      return <Navigate to="/" state={{ from: location }} />;
 };

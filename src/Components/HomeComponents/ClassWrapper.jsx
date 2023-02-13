@@ -7,7 +7,7 @@ const ClassWrapper = ({ academic, onlyClass }) => {
      return (
           <section id="academic" className={`container mx-auto px-4 md:px-10 ${academic === true ? 'mt-8 mb-16 py-10' : onlyClass === true ? 'mt-0' : 'mt-28'}`}>
                {onlyClass === false && <Heading text={"Academic Info"} />}
-               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 mt-4">
+               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-4">
                     {
                          database.classes.map(({ id, name, icon, link, color }) => <Link to={`/academic/${link}`} key={id}>
                               <div className="card rounded-lg bg-white shadow-sm hover:shadow-lg hover:border border border-transparent hover:border-[#1EB2A6]">

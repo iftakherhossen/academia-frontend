@@ -1,16 +1,13 @@
 import React from 'react';
 import { MdDelete, MdDone } from 'react-icons/md';
+import database from '../../assets/database';
 import Heading from '../Common/Heading';
-
-const admissionForms = [
-     { id: 1, name: "Mahreen Sultan", classNo: "class-8", appointmentDate: "05/02/2023", status: true },
-];
 
 const ManageAdmissionForms = () => {
      return (
           <div>
                <Heading text={"Manage Admission Forms"} dashboard={true} />
-               <div className="px-5 md:px-10">
+               <div className="px-5 md:px-10 overflow-x-auto">
                     <table className="w-full text-black text-left">
                          <tr className="select-none font-bold md:text-xl">
                               <th className="py-2 px-4"></th>
@@ -20,10 +17,10 @@ const ManageAdmissionForms = () => {
                               <th className="lg:w-1/4 py-2 px-4">Action</th>
                          </tr>
                          {
-                              admissionForms.map(({ id, name, classNo, appointmentDate, status }, index) => <tr key={id} className="hover:bg-slate-100 font-medium md:text-lg">
+                              database.admissionForms.map(({ id, name, className, appointmentDate, status }, index) => <tr key={id} className="hover:bg-slate-100 font-medium md:text-lg">
                                    <td className="py-2 px-4 font-semibold select-none">{index + 1}.</td>
                                    <td className="lg:w-1/4 py-2 px-4">{name}</td>
-                                   <td className="lg:w-1/4 py-2 px-4 capitalize">{classNo}</td>
+                                   <td className="lg:w-1/4 py-2 px-4 capitalize">{className}</td>
                                    <td className="lg:w-1/4 py-2 px-4">{appointmentDate}</td>
                                    <td className="lg:w-1/4 py-2 px-4">
                                         {
@@ -41,7 +38,7 @@ const ManageAdmissionForms = () => {
                          }
                     </table>
                     {
-                         admissionForms.length === 0 && <div className="border py-5 text-center text-xl text-black font-medium">
+                         database.admissionForms.length === 0 && <div className="border py-5 text-center text-xl text-black font-medium">
                               <p>No data to show!</p>
                          </div>
                     }

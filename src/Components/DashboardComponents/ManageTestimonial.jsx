@@ -27,7 +27,7 @@ const ManageTestimonial = () => {
      return (
           <div>
                <Heading text={"Manage Testimonials"} dashboard={true} />
-               <div className="px-5 md:px-10">
+               <div className="px-5 md:px-10 overflow-x-auto">
                     <table className="w-full text-black text-left">
                          <thead>
                               <tr className="select-none font-bold md:text-xl">

@@ -5,8 +5,8 @@ import database from '../assets/database';
 import useAuth from '../hooks/useAuth';
 
 const Dashboard = () => {
-     const { logOut } = useAuth();
-     const userData = database.user.find(data => data.email);
+     const { user, logOut } = useAuth();
+     const userData = database.users.find(data => data.email === user.email);
 
      return (
           <div className="drawer drawer-mobile">
@@ -29,15 +29,9 @@ const Dashboard = () => {
                               <Link to="/">Back to Home</Link>
                          </li>
                          {
-                              userData.role === "Admin" && database.dashboardItems.map(({ title }) => <li className="text-xl font-semibold" onClick={() => {document.getElementById('side-bar').click()}} key={title}>
+                              userData?.role === "Admin" && database.dashboardItems.map(({ title }) => <li className="text-xl font-semibold" onClick={() => {document.getElementById('side-bar').click()}} key={title}>
                                    <Link to={title === "Dashboard Home" ? "/dashboard" : `/dashboard/${title.replace(/\s+/g, '-').toLowerCase()}`}>{title}</Link>
                               </li>)
-                         }
-                         {
-                              userData.role === "Teacher" && database.dashboardItems.map(({ title, teachers }) => teachers === true && <li className="text-xl font-semibold" onClick={() => {document.getElementById('side-bar').click()}} key={title}>
-                                   <Link to={title === "Dashboard Home" ? "/dashboard" : `/dashboard/${title.replace(/\s+/g, '-').toLowerCase()}`}>{title}</Link>
-                              </li>)
-                         
                          }
                          <li className="text-xl font-semibold mt-auto">
                               <span onClick={logOut}>Log Out</span>

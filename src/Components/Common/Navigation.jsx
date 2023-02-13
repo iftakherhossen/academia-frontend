@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import GoogleButton from 'react-google-button';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
@@ -6,11 +6,27 @@ import database from '../../assets/database';
 import useAuth from '../../hooks/useAuth';
 
 const Navigation = ({ home }) => {
-     const { user, logOut } = useAuth();
-     const userData = database.user.find(data => data.email);
+     const { user, loginUser, logOut } = useAuth();
+     const userData = database.users.find(data => data.email === user.email);
+     const [loginData, setLoginData] = useState();     
 
-     const splitString = userData.name.split(' ')
+     const splitString = userData ? userData.name.split(' ') : "Not Found";
      let lastName = splitString[splitString.length - 1];
+
+     const handleOnBlur = e => {
+          const field = e.target.name;
+          const value = e.target.value;
+          const newLoginData = { ...loginData };
+          newLoginData[field] = value;
+          setLoginData(newLoginData);
+     }
+
+     const handleLogin = (e) => {
+          e.preventDefault();
+          
+          loginUser(loginData.email, loginData.password)
+     }
+     console.log(userData);
 
      return (
           <div className={`${home !== true && 'bg-[#1EB2A6] shadow sticky top-0 z-20'}`}>
@@ -60,7 +76,7 @@ const Navigation = ({ home }) => {
                                         Stuffs
                                         <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
                                    </a>
-                                   <ul className="menu menu-compact dropdown-content mt-4 p-2 shadow rounded-xl w-52 bg-white text-[#1EB2A6] font-semibold">
+                                   <ul className="menu menu-compact dropdown-content mt-4 shadow rounded-xl w-52 bg-white text-[#1EB2A6] font-semibold">
                                         <li><Link to="/governing-body" className="text-base">Governing Body</Link></li>
                                         <li><Link to="/teachers" className="text-base">Teachers</Link></li>
                                         <li><Link to="/stuffs" className="text-base">Stuffs</Link></li>
@@ -76,14 +92,15 @@ const Navigation = ({ home }) => {
                     <div className="md:navbar-end md:w-[20%]">
                          {
                               user.email ? <div className="dropdown dropdown-end tooltip tooltip-bottom" data-tip={userData.role}>
-                                   <label tabIndex={0} className={`btn btn-ghost btn-circle avatar placeholder border-2 ${userData.role === 'Admin' && 'border-red-500'} ${userData.role === 'Teacher' && 'border-green-600'} ${userData.role === 'Student' && 'border-yellow-500'}`}>
+                                   <label tabIndex={0} className={`btn btn-ghost btn-circle avatar placeholder border-2 ${userData.role === 'Admin' && 'border-red-500'} ${userData.role === 'Teacher' && 'border-green-500'} ${userData.role === 'Student' && 'border-yellow-500'}`}>
                                         <div className="bg-white text-pastel-green rounded-full w-24">
-                                             <span className="text-2xl">{user.displayName.match(/\b(\w)/g).join('')}</span>
+                                             <span className="text-2xl">{userData.name.match(/\b(\w)/g).join('')}</span>
                                         </div>
                                    </label>
-                                   <ul tabIndex={0} className="menu menu-compact dropdown-content mt-4 p-2 shadow rounded-xl w-52 bg-white text-[#1EB2A6] font-semibold">
-                                        <li><label htmlFor="profile-modal" className="justify-between text-base">Profile</label></li>
-                                        {userData.role !== "Student" && <li><Link to="/dashboard" className="text-base">Dashboard</Link></li>}
+                                   <ul tabIndex={0} className="menu menu-compact dropdown-content mt-4 shadow rounded-xl w-52 bg-white text-[#1EB2A6] font-semibold">
+                                        <li><label htmlFor="profile-modal" className="text-base">Profile</label></li>
+                                        <li><Link to="/forum" className="text-base">Forum</Link></li>
+                                        {userData.role === "Admin" && <li><Link to="/dashboard" className="text-base">Dashboard</Link></li>}
                                         <li><span className="text-base" onClick={logOut}>Logout</span></li>
                                    </ul>
                               </div> : <ul className="menu menu-horizontal px-1 font-bold text-lg">
@@ -128,16 +145,27 @@ const Navigation = ({ home }) => {
                     <input type="checkbox" id="admin-login" className="modal-toggle" />
                     <div className="modal modal-bottom sm:modal-middle">
                          <div className="modal-box relative bg-white text-black">
-                              <label htmlFor="admin-login" className="btn btn-sm btn-circle absolute right-2 top-2 bg-white  text-black border-black hover:text-white">✕</label>
+                              <label htmlFor="admin-login" className="btn btn-sm btn-circle absolute right-2 top-2 bg-white text-black border-black hover:text-white">✕</label>
                               <h3 className="text-2xl font-bold pl-1">Welcome, Admin</h3>
-                              <form className="pt-4 pb-0">
-                                   <input type="email" placeholder="Enter Email here" className="input input-bordered focus:outline-0 w-full bg-white text-lg font-medium my-2" required />
-                                   <input type="password" placeholder="Enter Password here" className="input input-bordered focus:outline-0 w-full bg-white text-lg font-medium my-2" min={6} required />
-                                   <button className="btn mt-4 w-full bg-pastel-green border-0 text-white text-lg">Login</button>
-                                   <GoogleButton
-                                        className="mt-4 mx-auto"
-                                        onClick={() => { console.log('Google button clicked') }}
+                              <form className="pt-4 pb-0" onSubmit={handleLogin}>
+                                   <input
+                                        type="email"
+                                        name="email"
+                                        placeholder="Enter Email here"
+                                        className="input input-bordered focus:outline-0 w-full bg-white text-lg font-medium my-2"
+                                        required
+                                        onBlur={handleOnBlur}
                                    />
+                                   <input
+                                        type="password"
+                                        placeholder="Enter Password here"
+                                        name="password"
+                                        className="input input-bordered focus:outline-0 w-full bg-white text-lg font-medium my-2"
+                                        min={6}
+                                        required
+                                        onBlur={handleOnBlur}
+                                   />
+                                   <button className="btn mt-4 w-full bg-pastel-green border-0 text-white text-lg">Login</button>
                               </form>
                          </div>
                     </div>
@@ -148,17 +176,28 @@ const Navigation = ({ home }) => {
                     <input type="checkbox" id="teacher-login" className="modal-toggle" />
                     <div className="modal modal-bottom sm:modal-middle">
                          <div className="modal-box relative bg-white text-black">
-                              <label htmlFor="teacher-login" className="btn btn-sm btn-circle absolute right-2 top-2 bg-white  text-black border-black hover:text-white">✕</label>
+                              <label htmlFor="teacher-login" className="btn btn-sm btn-circle absolute right-2 top-2 bg-white text-black border-black hover:text-white">✕</label>
                               <h3 className="text-2xl font-bold pl-1">Welcome, Teacher</h3>
-                              <form className="pt-4 pb-0">
-                                   <input type="email" placeholder="Enter Email here" className="input input-bordered focus:outline-0 w-full bg-white text-lg font-medium my-2" required />
-                                   <input type="password" placeholder="Enter Password here" className="input input-bordered focus:outline-0 w-full bg-white text-lg font-medium my-2" min={6} required />
+                              <form className="pt-4 pb-0" onSubmit={handleLogin}>
+                                   <input
+                                        type="email"
+                                        name="email"
+                                        placeholder="Enter Email here"
+                                        className="input input-bordered focus:outline-0 w-full bg-white text-lg font-medium my-2"
+                                        required
+                                        onBlur={handleOnBlur}
+                                   />
+                                   <input
+                                        type="password"
+                                        placeholder="Enter Password here"
+                                        name="password"
+                                        className="input input-bordered focus:outline-0 w-full bg-white text-lg font-medium my-2"
+                                        min={6}
+                                        required
+                                        onBlur={handleOnBlur}
+                                   />
                                    <p className="text-sm text-slate-400 pl-1.5 font-medium">N.B. If you don't have any account, consult with your admin panel.</p>
                                    <button className="btn mt-6 w-full bg-pastel-green border-0 text-white text-lg">Login</button>
-                                   <GoogleButton
-                                        className="mt-4 mx-auto"
-                                        onClick={() => { console.log('Google button clicked') }}
-                                   />
                               </form>
                          </div>
                     </div>
@@ -169,17 +208,28 @@ const Navigation = ({ home }) => {
                     <input type="checkbox" id="student-login" className="modal-toggle" />
                     <div className="modal modal-bottom sm:modal-middle">
                          <div className="modal-box relative bg-white text-black">
-                              <label htmlFor="student-login" className="btn btn-sm btn-circle absolute right-2 top-2 bg-white  text-black border-black hover:text-white">✕</label>
+                              <label htmlFor="student-login" className="btn btn-sm btn-circle absolute right-2 top-2 bg-white text-black border-black hover:text-white">✕</label>
                               <h3 className="text-2xl font-bold pl-1">Welcome, Student</h3>
-                              <form className="pt-4 pb-0">
-                                   <input type="email" placeholder="Enter Email here" className="input input-bordered focus:outline-0 w-full bg-white text-lg font-medium my-2" required />
-                                   <input type="password" placeholder="Enter Password here" className="input input-bordered focus:outline-0 w-full bg-white text-lg font-medium my-2" min={6} required />
+                              <form className="pt-4 pb-0" onSubmit={handleLogin}>
+                                   <input
+                                        type="email"
+                                        placeholder="Enter Email here"
+                                        name="email"
+                                        className="input input-bordered focus:outline-0 w-full bg-white text-lg font-medium my-2"
+                                        required
+                                        onBlur={handleOnBlur}
+                                   />
+                                   <input
+                                        type="password"
+                                        placeholder="Enter Password here"
+                                        name="password"
+                                        className="input input-bordered focus:outline-0 w-full bg-white text-lg font-medium my-2"
+                                        min={6}
+                                        required
+                                        onBlur={handleOnBlur}
+                                   />
                                    <p className="text-sm text-slate-400 pl-1.5 font-medium">N.B. If you don't have any account, consult with your teacher.</p>
                                    <button className="btn mt-6 w-full bg-pastel-green border-0 text-white text-lg">Login</button>
-                                   <GoogleButton
-                                        className="mt-4 mx-auto"
-                                        onClick={() => { console.log('Google button clicked') }}
-                                   />
                               </form>
                          </div>
                     </div>
@@ -191,31 +241,31 @@ const Navigation = ({ home }) => {
                     <div className="modal modal-bottom sm:modal-middle">
                          <div className="modal-box relative bg-white text-black">
                               <label htmlFor="profile-modal" className="btn btn-sm btn-circle absolute right-2 top-2 bg-white  text-black border-black hover:text-white">✕</label>
-                              <h3 className="text-2xl font-medium pl-1">Welcome, Mr. <spn className="font-semibold text-[#1EB2A6]">{lastName}</spn></h3>
-                              <div className="mt-4 px-2 mb-0">
-                                   <table className="w-[100%]">
+                              <h3 className="text-2xl font-medium pl-1">Welcome, Mr. <span className="font-semibold text-[#1EB2A6]">{lastName}</span></h3>
+                              <div className="mt-4 px-2 mb-0 overflow-x-auto">
+                                   <table className="table w-full">
                                         <tr>
                                              <th className="profileTableHeading"><span>Name</span> <span className="select-none">:</span></th>
-                                             <td className="profileTableData">{userData.name}</td>
+                                             <td className="profileTableData">{userData?.name}</td>
                                         </tr>
                                         <tr>
                                              <th className="profileTableHeading"><span>Email</span> <span className="select-none">:</span></th>
-                                             <td className="profileTableData">{userData.email}</td>
+                                             <td className="profileTableData">{userData?.email}</td>
                                         </tr>
                                         <tr>
                                              <th className="profileTableHeading"><span>Role</span> <span className="select-none">:</span></th>
-                                             <td className="profileTableData">{userData.role}</td>
+                                             <td className="profileTableData">{userData?.role}</td>
                                         </tr>
                                         {
-                                             userData.classNo && <tr>
+                                             userData?.classNo && <tr>
                                                   <th className="profileTableHeading"><span>Class</span> <span>:</span></th>
-                                                  <td className="profileTableData">{userData.classNo}</td>
+                                                  <td className="profileTableData">{userData?.classNo}</td>
                                              </tr>
                                         }
                                    </table>
                                    {
-                                        userData.classNo && <div className="flex justify-center mt-5">
-                                             <Link to={`/academic/${userData.classNo}`}><button className="btn btn-sm text-white bg-pastel-green border-0">View Full Record</button></Link>
+                                        userData?.classNo && <div className="flex justify-center mt-5">
+                                             <Link to={`/academic/${userData?.classNo}`}><button className="btn btn-sm text-white bg-pastel-green border-0">View Full Record</button></Link>
                                         </div>
                                    }
                               </div>

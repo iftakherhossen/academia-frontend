@@ -5,7 +5,7 @@ import database from '../../assets/database';
 
 const DataTable = ({ data, showDegree }) => {
      return (
-          <>
+          <div className="overflow-x-auto">
                <table className="w-full text-black text-left">
                     <thead>
                          <tr className="select-none font-bold md:text-xl">
@@ -40,7 +40,7 @@ const DataTable = ({ data, showDegree }) => {
                {data.length === 0 && <div className="border py-5 text-center text-xl text-black font-medium">
                     <p>No data to show!</p>
                </div>}
-          </>
+          </div>
      )
 }
 

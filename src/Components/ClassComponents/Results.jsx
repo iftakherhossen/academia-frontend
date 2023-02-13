@@ -39,17 +39,17 @@ const Results = ({ classNo }) => {
                     </form>
                </div>
                {
-                    resultCard?.length > 0 ? resultCard?.map(data => <div className="my-auto" id="result-card">
+                    resultCard.length > 0 ? resultCard.map(({ id, name, className, result}) => <div className="my-auto" id="result-card" key={id}>                         
                          <div className="w-3/4 card border mx-auto rounded-lg">
                               <div className="card-body px-4 py-3">
                                    <div className="flex justify-between items-center">
                                         <div className="text-xl font-medium text-black pl-8 capitalize">
-                                             <h2 className="text-2xl font-bold mb-2">{data.name}</h2>
-                                             <p>Class: {data.className}</p>
-                                             <p>ID: {data.id}</p>
-                                             <p>Position: {positions.findIndex(i => i === 95) === 0 ? "First" : positions.findIndex(i => i === 95) === 1 ? "Second" : "Third"}</p>
+                                             <h2 className="text-2xl font-bold mb-2">{name}</h2>
+                                             <p>ID: {id}</p>
+                                             <p>Class: {className}</p>                                             
+                                             <p>Position: {positions?.indexOf(result) === 0 ? "First 🥇" : positions?.indexOf(result) ? "Second 🥈" : "Third 🥉"}</p>
                                         </div>
-                                        <Pie result={parseInt(data.result)} />
+                                        <Pie result={parseInt(result)} />
                                    </div>
                               </div>
                          </div>
