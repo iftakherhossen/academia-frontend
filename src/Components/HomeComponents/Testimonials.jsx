@@ -15,7 +15,7 @@ const TestimonialCard = ({ testimonial, slide }) => {
                          <p>Guardian</p>
                     </div>
                </div>
-               <div className="card-body">
+               <div className="card-body pt-4">
                     <q className="text-xl font-medium">{testimonial.text}</q>
                </div>
           </div>

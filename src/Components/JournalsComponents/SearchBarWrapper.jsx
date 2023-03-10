@@ -1,4 +1,5 @@
 import SearchBar from 'material-ui-search-bar';
+import moment from 'moment';
 import React from 'react';
 
 const SearchBarWrapper = ({ searchedValue, requestSearch, cancelSearch, searchedResult, shuffledJournals, resultSlicedValue }) => {
@@ -21,7 +22,7 @@ const SearchBarWrapper = ({ searchedValue, requestSearch, cancelSearch, searched
                          {searchedResult.length > 0 ? `Results Found: ${searchedResult.length}` : "Most Popular Journals"}
                     </p>
                </div>
-               <div className="max:h-[13rem] mt-6">
+               <div className="max:h-[15rem] mt-6 pb-8 border-b">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 px-4 md:px-0 text-black">
                          {
                               searchedResult.length > 0 ? searchedResult.slice(0, resultSlicedValue).map(({ title, url }) => <a href={url} key={title}>
@@ -32,10 +33,13 @@ const SearchBarWrapper = ({ searchedValue, requestSearch, cancelSearch, searched
                                              </h2>
                                         </div>
                                    </div>
-                              </a>) : shuffledJournals.slice(0, resultSlicedValue).reverse().map(({ title, url }) => <a href={url} key={title}>
+                              </a>) : shuffledJournals.slice(0, resultSlicedValue).reverse().map(({ title, publishedAt, url }) => <a href={url} key={title}>
                                    <div className="card bg-white h-full">
                                         <div className="card-body px-5 py-4">
-                                             <h2 className="text-xl font-semibold">{title}</h2>
+                                             <h2 className="text-xl font-semibold">{title}</h2>                                             
+                                        </div>
+                                        <div className="card-actions px-5 pb-4 justify-end">
+                                             <p className="text-slate-600">{moment(publishedAt).format("MMM Do, YYYY")}</p>
                                         </div>
                                    </div>
                               </a>)

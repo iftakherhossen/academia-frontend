@@ -77,6 +77,9 @@ const useFirebase = () => {
             .finally(() => {
                 setIsLoading(false);
                 setSuccess(true);
+                document.getElementById('admin-login').checked = false;
+                document.getElementById('teacher-login').checked = false;
+                document.getElementById('student-login').checked = false;
                 success && Swal.fire(
                     'Login Successfully!',
                     'Welcome to Academia',

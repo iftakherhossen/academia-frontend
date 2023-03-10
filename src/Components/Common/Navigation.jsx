@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import GoogleButton from 'react-google-button';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import database from '../../assets/database';
@@ -26,7 +25,6 @@ const Navigation = ({ home }) => {
           
           loginUser(loginData.email, loginData.password)
      }
-     console.log(userData);
 
      return (
           <div className={`${home !== true && 'bg-[#1EB2A6] shadow sticky top-0 z-20'}`}>
@@ -91,15 +89,15 @@ const Navigation = ({ home }) => {
                     </div>
                     <div className="md:navbar-end md:w-[20%]">
                          {
-                              user.email ? <div className="dropdown dropdown-end tooltip tooltip-bottom" data-tip={userData.role}>
+                              user.email ? <div className="dropdown dropdown-end tooltip tooltip-bottom" data-tip={userData.name}>
                                    <label tabIndex={0} className={`btn btn-ghost btn-circle avatar placeholder border-2 ${userData.role === 'Admin' && 'border-red-500'} ${userData.role === 'Teacher' && 'border-green-500'} ${userData.role === 'Student' && 'border-yellow-500'}`}>
                                         <div className="bg-white text-pastel-green rounded-full w-24">
-                                             <span className="text-2xl">{userData.name.match(/\b(\w)/g).join('')}</span>
+                                             <span className="text-2xl">{userData.name.charAt(0)}</span>
                                         </div>
                                    </label>
                                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-4 shadow rounded-xl w-52 bg-white text-[#1EB2A6] font-semibold">
                                         <li><label htmlFor="profile-modal" className="text-base">Profile</label></li>
-                                        <li><Link to="/forum" className="text-base">Forum</Link></li>
+                                        {/* <li><Link to="/forum" className="text-base">Forum</Link></li> */}
                                         {userData.role === "Admin" && <li><Link to="/dashboard" className="text-base">Dashboard</Link></li>}
                                         <li><span className="text-base" onClick={logOut}>Logout</span></li>
                                    </ul>

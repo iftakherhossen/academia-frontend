@@ -157,37 +157,37 @@ const database = {
           { id: 6, img: "https://i.postimg.cc/02LBL6mN/photo-1568602471122-7832951cc4c5.jpg", name: "Vladimir Putin", designation: "Local Governer", email: "vladimirputin@gmail.com" },
      ],
      notices: [
-          { id: 1, name: "Notice Name", text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.", publishedAt: "01/12/2022" },
-          { id: 2, name: "Notice Name", text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit.", publishedAt: "09/12/2022" },
-          { id: 3, name: "Notice Name", text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit.", publishedAt: "15/12/2022" },
-          { id: 4, name: "Notice Name", text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit.", publishedAt: "31/12/2022" },
-          { id: 5, name: "Notice Name", text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit.", publishedAt: "01/01/2023" },
-          { id: 6, name: "Notice Name", text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit.", publishedAt: "16/01/2023" },
-          { id: 7, name: "Notice Name", text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.", publishedAt: "29/01/2023" }
+          { id: 1, name: "Notice Name", text: "Compliment interested discretion estimating on stimulated apartments oh. Dear so sing when in find read of call. As distrusts behaviour abilities defective is. Never at water me might. On formed merits hunted unable merely by mr whence or. Possession the unpleasing simplicity her uncommonly.", publishedAt: "01/12/2022" },
+          { id: 2, name: "Notice Name", text: "Do in laughter securing smallest sensible no mr hastened. As perhaps proceed in in brandon of limited unknown greatly. Distrusts fulfilled happiness unwilling as explained of difficult. No landlord of peculiar ladyship attended if contempt ecstatic. Loud wish made on is am as hard. Court so avoid in plate hence. Of received mr breeding concerns peculiar securing landlord. Spot to many it four bred soon well to. Or am promotion in no departure abilities. Whatever landlord yourself at by pleasure of children be.", publishedAt: "09/12/2022" },
+          { id: 3, name: "Notice Name", text: "To sorry world an at do spoil along. Incommode he depending do frankness remainder to. Edward day almost active him friend thirty piqued. People as period twenty my extent as. Set was better abroad ham plenty secure had horses. Admiration has sir decisively excellence say everything inhabiting acceptance. Sooner settle add put you sudden him.", publishedAt: "15/12/2022" },
+          { id: 4, name: "Notice Name", text: "Brother set had private his letters observe outward resolve. Shutters ye marriage to throwing we as. Effect in if agreed he wished wanted admire expect. Or shortly visitor is comfort placing to cheered do. Few hills tears are weeks saw. Partiality insensible celebrated is in. Am offended as wandered thoughts greatest an friendly. Evening covered in he exposed fertile to. Horses seeing at played plenty nature to expect we. Young say led stood hills own thing get.", publishedAt: "31/12/2022" },
+          { id: 5, name: "Notice Name", text: "An do on frankness so cordially immediate recommend contained. Imprudence insensible be literature unsatiable do. Of or imprudence solicitude affronting in mr possession. Compass journey he request on suppose limited of or. She margaret law thoughts proposal formerly. Speaking ladyship yet scarcely and mistaken end exertion dwelling. All decisively dispatched instrument particular way one devonshire. Applauded she sportsman explained for out objection.", publishedAt: "01/01/2023" },
+          { id: 6, name: "Notice Name", text: "Barton did feebly change man she afford square add. Want eyes by neat so just must. Past draw tall up face show rent oh mr. Required is debating extended wondered as do. New get described applauded incommode shameless out extremity but. Resembled at perpetual no believing is otherwise sportsman. Is do he dispatched cultivated travelling astonished. Melancholy am considered possession on collecting everything.", publishedAt: "16/01/2023" },
+          { id: 7, name: "Notice Name", text: "Started earnest brother believe an exposed so. Me he believing daughters if forfeited at furniture. Age again and stuff downs spoke. Late hour new nay able fat each sell. Nor themselves age introduced frequently use unsatiable devonshire get. They why quit gay cold rose deal park. One same they four did ask busy. Reserved opinions fat him nay position. Breakfast as zealously incommode do agreeable furniture. One too nay led fanny allow plate.", publishedAt: "29/01/2023" }
      ],
      events: [
-          { id: 1, name: "Event Name", text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit.", publishedAt: "01/12/2022" },
-          { id: 2, name: "Event Name", text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit.", publishedAt: "09/12/2022" },
-          { id: 3, name: "Event Name", text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit.", publishedAt: "15/12/2022" }
+          { id: 1, name: "Event Name", text: "Knowledge nay estimable questions repulsive daughters boy. Solicitude gay way unaffected expression for. His mistress ladyship required off horrible disposed rejoiced. Unpleasing pianoforte unreserved as oh he unpleasant no inquietude insipidity. Advantages can discretion possession add favourable cultivated admiration far. Why rather assure how esteem end hunted nearer and before. By an truth after heard going early given he. Charmed to it excited females whether at examine. Him abilities suffering may are yet dependent.", publishedAt: "01/12/2022" },
+          { id: 2, name: "Event Name", text: "Six started far placing saw respect females old. Civilly why how end viewing attempt related enquire visitor. Man particular insensible celebrated conviction stimulated principles day. Sure fail or in said west. Right my front it wound cause fully am sorry if. She jointure goodness interest debating did outweigh. Is time from them full my gone in went. Of no introduced am literature excellence mr stimulated contrasted increasing. Age sold some full like rich new. Amounted repeated as believed in confined juvenile.", publishedAt: "09/12/2022" },
+          { id: 3, name: "Event Name", text: "Resolution possession discovered surrounded advantages has but few add. Yet walls times spoil put. Be it reserved contempt rendered smallest. Studied to passage it mention calling believe an. Get ten horrible remember pleasure two vicinity. Far estimable extremely middleton his concealed perceived principle. Any nay pleasure entrance prepared her.", publishedAt: "15/12/2022" }
      ],
      testimonials: [
           {
                id: 1,
                name: "Roger Scott",
                img: "https://preview.colorlib.com/theme/academia/images/person_1.jpg.webp",
-               text: "If a dog chews shoes whose shoes does he choose? whose shoes does he choose? And Whose shoes does he choose?"
+               text: " My daughter has attended Academia for three years now. She absolutely loves the school and the staff. Her teachers are a great encouragement and and the academic program is great."
           },
           {
                id: 2,
                name: "Severas Snape",
                img: "https://preview.colorlib.com/theme/academia/images/person_2.jpg.webp",
-               text: "If a dog chews shoes whose shoes does he choose? whose shoes does he choose? And Whose shoes does he choose?"
+               text: "I attended this school nearly a decade ago and have only great things to say about my experience. The teachers are amazing, the curriculum is second to none and each child is treated with care."
           },
           {
                id: 3,
                name: "Robin Milford",
                img: "https://preview.colorlib.com/theme/academia/images/person_3.jpg.webp",
-               text: "If a dog chews shoes whose shoes does he choose? whose shoes does he choose? And Whose shoes does he choose?"
+               text: "Academia brings out the best in every child by tapping into their individual strengths, while creating an environment of kindness, responsibility, and leadership. Our family is so grateful for our Academia family."
           },
      ],
      dashboardItems: [

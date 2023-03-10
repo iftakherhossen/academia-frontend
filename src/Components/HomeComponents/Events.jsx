@@ -8,7 +8,7 @@ const Event = ({ event, dashboard }) => {
      const [showMore, setShowMore] = useState(false);
 
      return (
-          <div className="card bg-white text-black shadow mb-4 hover:shadow-lg">
+          <div className="card bg-white text-black shadow mb-4 hover:shadow-lg h-full">
                <div className="card-body px-6 py-4">
                     <div className="flex justify-between items-center">
                          <h2 className="text-xl font-semibold">{event.name}</h2>
